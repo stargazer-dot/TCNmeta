@@ -1,10 +1,10 @@
 import tensorflow as tf
 import pandas as pd
 from keras.models import Sequential
-from onehotEncode import encode
+from OnehotEncode import encode
 import random
-from 膨胀卷积模型编码器 import Codemodel
-from softmax分类器 import softMax
+from CodeModel import Codemodel
+from SoftmaxClassifier import softMax
 def custom_loss_L(y_true, y_pred):
     loss=tf.keras.losses.BinaryCrossentropy()
     return loss(y_true=y_true,y_pred=y_pred)
