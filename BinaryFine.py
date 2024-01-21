@@ -40,10 +40,6 @@ classes=2
 encoder=encode(276)
 
 
-
-
-
-optimizer1 = tf.keras.optimizers.Adam(learning_rate=0.001,beta_1=0.9)
 codemodel=Sequential()
 for i in range(4):
     codemodel.add(Codemodel(channel=128,k=6,d=pow(2,i)))
@@ -59,7 +55,7 @@ Smodel=Sequential()
 for i in range(4):
     Smodel.add(Codemodel(channel=32,k=6,d=pow(2,i)))
 
-optimizer2 = tf.keras.optimizers.Adam(learning_rate=0.001,beta_1=0.9)
+optimizer2 = tf.keras.optimizers.Adam(learning_rate=0.001,beta_1=0.9,beta_2=0.999)
 SLmodel.add(Smodel)
 SLmodel.add(FLinemodel(classes=classes,seqlen=276,hidden_size=64))
 SLmodel.compile(optimizer=optimizer2,
